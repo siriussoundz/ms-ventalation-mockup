@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MS Ventilation — Homepage Mock-up</title>
+  <style>
+    :root {
+      --blue: #25247c;
+      --red: #df0b1b;
+      --dark: #111827;
+      --steel: #4b5563;
+      --light: #f5f7fb;
+      --white: #ffffff;
+      --line: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .top-strip {
+      background: var(--dark);
+      color: var(--white);
+      font-size: 0.9rem;
+      padding: 0.55rem 5vw;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      padding: 1rem 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-placeholder {
+      width: 190px;
+      min-height: 76px;
+      border: 2px dashed #cbd5e1;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: var(--steel);
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 0.5rem;
+      background: #fafafa;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--red);
+      color: var(--white);
+      padding: 0.85rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 800;
+      box-shadow: 0 10px 25px rgba(223, 11, 27, 0.2);
+    }
+
+    .button.secondary {
+      background: var(--blue);
+      box-shadow: 0 10px 25px rgba(37, 36, 124, 0.2);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #f7f8fc 0%, #ffffff 52%, #eef2ff 100%);
+      padding: 5rem 5vw 4rem;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -10%;
+      top: -30%;
+      width: 48rem;
+      height: 48rem;
+      border: 48px solid rgba(37, 36, 124, 0.08);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: 5%;
+      bottom: -18%;
+      width: 38rem;
+      height: 16rem;
+      background: rgba(223, 11, 27, 0.08);
+      transform: rotate(-12deg);
+      border-radius: 50%;
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+      max-width: 1180px;
+      margin: auto;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--blue);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      max-width: 780px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 680px;
+      color: var(--steel);
+      margin-bottom: 1.7rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .proof-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.55rem 0.85rem;
+      font-weight: 700;
+      color: var(--dark);
+      box-shadow: 0 8px 18px rgba(17, 24, 39, 0.04);
+    }
+
+    .hero-card {
+      background: var(--dark);
+      color: var(--white);
+      border-radius: 28px;
+      padding: 2rem;
+      box-shadow: 0 24px 60px rgba(17, 24, 39, 0.22);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -18% -25% auto;
+      width: 20rem;
+      height: 20rem;
+      border: 32px solid rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+    }
+
+    .image-placeholder {
+      height: 230px;
+      border-radius: 20px;
+      border: 2px dashed rgba(255,255,255,0.35);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      color: #d1d5db;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .hero-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .section {
+      padding: 4.5rem 5vw;
+    }
+
+    .section-inner {
+      max-width: 1180px;
+      margin: auto;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+    }
+
+    .section-title p {
+      max-width: 520px;
+      color: var(--steel);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 1.5rem;
+      background: var(--white);
+      box-shadow: 0 12px 28px rgba(17, 24, 39, 0.05);
+    }
+
+    .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--blue), var(--red));
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      color: var(--steel);
+      font-size: 0.98rem;
+    }
+
+    .projects {
+      background: var(--light);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .project-card {
+      min-height: 210px;
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(17,24,39,0.88), rgba(37,36,124,0.85));
+      color: white;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: "Project image placeholder";
+      position: absolute;
+      inset: 1rem 1rem auto auto;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.78rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .cta {
+      background: var(--dark);
+      color: var(--white);
+      border-radius: 32px;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .cta h2 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .cta p {
+      color: #d1d5db;
+      max-width: 680px;
+    }
+
+    .contact-box {
+      background: var(--white);
+      color: var(--dark);
+      border-radius: 24px;
+      padding: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-box h3 {
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-box p {
+      color: var(--steel);
+      margin-bottom: 0.35rem;
+    }
+
+    .site-logo {
+      width: 190px;
+      height: auto;
+      display: block;
+    }
+
+    footer {
+      padding: 2rem 5vw;
+      border-top: 1px solid var(--line);
+      color: var(--steel);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      header, nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-grid,
+      .cta {
+        grid-template-columns: 1fr;
+      }
+
+      .grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-strip">
+    <span>MS Ventilation (South & East) Limited</span>
+    <span>1 Highbridge Road, Eastleigh, SO50 6HS</span>
+  </div>
+
+  <header>
+    <div class="logo-wrap">
+      <img class="site-logo" src="Images/small logo se.jpg" alt="MS Ventilation South & East Ltd logo">
+    </div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a class="button" href="mailto:scottalderman@msventilation.com">Send Drawings</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Commercial ventilation & ductwork specialists</span>
+          <h1>From drawings to delivery.</h1>
+          <p>
+            MS Ventilation (South & East) Limited provides ductwork manufacture, ventilation installation and project support for contractors, consultants and commercial project teams across the South, East and wider UK.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="mailto:scottalderman@msventilation.com">Send Drawings for Quote</a>
+            <a class="button secondary" href="#projects">View Project Experience</a>
+          </div>
+          <div class="proof-row">
+            <span class="pill">In-house manufacture</span>
+            <span class="pill">Site installation</span>
+            <span class="pill">CAD support</span>
+            <span class="pill">Commercial projects</span>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="image-placeholder">
+            Placeholder for project image<br />Wimbledon / ductwork / plant room / site install
+          </div>
+          <h2>Built for demanding environments</h2>
+          <p>
+            Supporting commercial, healthcare, education, industrial and public-sector ventilation projects with practical technical experience and reliable delivery.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="section-inner">
+        <div class="section-title">
+          <h2>Design, manufacture and installation support.</h2>
+          <p>
+            A clear capability overview for main contractors, M&E consultants and project teams looking for reliable ventilation and ductwork delivery.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="icon"></div>
+            <h3>Ductwork Manufacture</h3>
+            <p>Bespoke ductwork manufacture from project drawings, schedules or site requirements.</p>
+          </article>
+          <article class="card">
+            <div class="icon"></div>
+            <h3>Ventilation Installation</h3>
+            <p>Experienced installation teams supporting commercial and specialist environments.</p>
+          </article>
+          <article class="card">
+            <div class="icon"></div>
+            <h3>Design & CAD Support</h3>
+            <p>Technical support, coordination and drawing-led project delivery where required.</p>
+          </article>
+          <article class="card">
+            <div class="icon"></div>
+            <h3>Site Management</h3>
+            <p>Project-aware delivery with site coordination, practical planning and communication.</p>
+          </article>
+          <article class="card">
+            <div class="icon"></div>
+            <h3>Supply-Only Ductwork</h3>
+            <p>Manufactured ductwork supplied to specification for contractors and project teams.</p>
+          </article>
+          <article class="card">
+            <div class="icon"></div>
+            <h3>Specialist Systems</h3>
+            <p>Support for specialist ductwork and ventilation requirements across demanding sectors.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section projects">
+      <div class="section-inner">
+        <div class="section-title">
+          <h2>Project experience that builds confidence.</h2>
+          <p>
+            Placeholder section ready for client-supplied project photos, case studies and recognisable project references including Wimbledon.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <h3>Wimbledon</h3>
+            <p>High-profile project experience placeholder.</p>
+          </article>
+          <article class="project-card">
+            <h3>Healthcare</h3>
+            <p>Hospitals, clinical and specialist environments.</p>
+          </article>
+          <article class="project-card">
+            <h3>Education</h3>
+            <p>Schools, colleges and learning environments.</p>
+          </article>
+          <article class="project-card">
+            <h3>Commercial</h3>
+            <p>Offices, retail, hospitality and mixed-use spaces.</p>
+          </article>
+          <article class="project-card">
+            <h3>Industrial</h3>
+            <p>Warehouses, production and technical facilities.</p>
+          </article>
+          <article class="project-card">
+            <h3>Public Sector</h3>
+            <p>Government, MOD and secure-site experience.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="section-inner">
+        <div class="cta">
+          <div>
+            <span class="eyebrow">Estimating enquiries</span>
+            <h2>Have drawings, specifications or a tender package?</h2>
+            <p>
+              Send project information directly to the estimating team for review. This single-page mock-up can be expanded into a full website once project images, service details and preferred design direction are confirmed.
+            </p>
+          </div>
+          <div class="contact-box">
+            <h3>Scott Alderman</h3>
+            <p><strong>Senior Estimator</strong></p>
+            <p>M: 07858 669701</p>
+            <p>T: 01962 866189</p>
+            <p>E: scottalderman@msventilation.com</p>
+            <br />
+            <a class="button" href="mailto:scottalderman@msventilation.com">Email Scott</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© MS Ventilation (South & East) Limited</span>
+    <span>1 Highbridge Road, Eastleigh, SO50 6HS</span>
+  </footer>
+</body>
+</html>
